@@ -84,6 +84,7 @@ private class SwagPdfOcrApiTest {
 
         Map<String, Object> params = new Map<String, Object>{
             'imageFile' => Blob.valueOf('Sample text file\nContents'),
+            'recognitionMode' => 'recognitionMode_example',
             'language' => 'language_example',
             'preprocessing' => 'preprocessing_example'
         };

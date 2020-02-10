@@ -86,6 +86,7 @@ private class SwagFormFieldDefinitionTest {
         System.assertEquals('leftAnchor', propertyMappings.get('LeftAnchor'));
         System.assertEquals('topAnchor', propertyMappings.get('TopAnchor'));
         System.assertEquals('bottomAnchor', propertyMappings.get('BottomAnchor'));
+        System.assertEquals('alternateAnchor', propertyMappings.get('AlternateAnchor'));
         System.assertEquals('anchorMode', propertyMappings.get('AnchorMode'));
         System.assertEquals('dataType', propertyMappings.get('DataType'));
         System.assertEquals('targetDigitCount', propertyMappings.get('TargetDigitCount'));
@@ -109,6 +110,7 @@ private class SwagFormFieldDefinitionTest {
         System.assertEquals(null, formFieldDefinition.leftAnchor);
         System.assertEquals(null, formFieldDefinition.topAnchor);
         System.assertEquals(null, formFieldDefinition.bottomAnchor);
+        System.assertEquals(null, formFieldDefinition.alternateAnchor);
         System.assertEquals(null, formFieldDefinition.anchorMode);
         System.assertEquals(null, formFieldDefinition.dataType);
         System.assertEquals(null, formFieldDefinition.targetDigitCount);

@@ -39,6 +39,12 @@ public class SwagFormFieldDefinition implements Swagger.MappedProperties {
     public String bottomAnchor { get; set; }
 
     /**
+     * Optional - alterate match text for the specified anchor
+     * @return alternateAnchor
+     */
+    public String alternateAnchor { get; set; }
+
+    /**
      * Optional - the matching mode for the anchor.  Possible values are Complete (requires the entire anchor to match) and Partial (allows only part of the anchor to match) and Horizontal (anchor must be laid out horizontally).  Default is Partial.
      * @return anchorMode
      */
@@ -121,6 +127,7 @@ public class SwagFormFieldDefinition implements Swagger.MappedProperties {
         'LeftAnchor' => 'leftAnchor',
         'TopAnchor' => 'topAnchor',
         'BottomAnchor' => 'bottomAnchor',
+        'AlternateAnchor' => 'alternateAnchor',
         'AnchorMode' => 'anchorMode',
         'DataType' => 'dataType',
         'TargetDigitCount' => 'targetDigitCount',
@@ -150,6 +157,7 @@ public class SwagFormFieldDefinition implements Swagger.MappedProperties {
         formFieldDefinition.leftAnchor = 'aeiou';
         formFieldDefinition.topAnchor = 'aeiou';
         formFieldDefinition.bottomAnchor = 'aeiou';
+        formFieldDefinition.alternateAnchor = 'aeiou';
         formFieldDefinition.anchorMode = 'aeiou';
         formFieldDefinition.dataType = 'aeiou';
         formFieldDefinition.targetDigitCount = 123;
@@ -173,6 +181,7 @@ public class SwagFormFieldDefinition implements Swagger.MappedProperties {
                 && this.leftAnchor == formFieldDefinition.leftAnchor
                 && this.topAnchor == formFieldDefinition.topAnchor
                 && this.bottomAnchor == formFieldDefinition.bottomAnchor
+                && this.alternateAnchor == formFieldDefinition.alternateAnchor
                 && this.anchorMode == formFieldDefinition.anchorMode
                 && this.dataType == formFieldDefinition.dataType
                 && this.targetDigitCount == formFieldDefinition.targetDigitCount
@@ -196,6 +205,7 @@ public class SwagFormFieldDefinition implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (leftAnchor == null ? 0 : System.hashCode(leftAnchor));
         hashCode = (17 * hashCode) + (topAnchor == null ? 0 : System.hashCode(topAnchor));
         hashCode = (17 * hashCode) + (bottomAnchor == null ? 0 : System.hashCode(bottomAnchor));
+        hashCode = (17 * hashCode) + (alternateAnchor == null ? 0 : System.hashCode(alternateAnchor));
         hashCode = (17 * hashCode) + (anchorMode == null ? 0 : System.hashCode(anchorMode));
         hashCode = (17 * hashCode) + (dataType == null ? 0 : System.hashCode(dataType));
         hashCode = (17 * hashCode) + (targetDigitCount == null ? 0 : System.hashCode(targetDigitCount));

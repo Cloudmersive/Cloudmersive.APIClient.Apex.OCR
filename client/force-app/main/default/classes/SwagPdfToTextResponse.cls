@@ -26,9 +26,23 @@ public class SwagPdfToTextResponse implements Swagger.MappedProperties {
      */
     public List<SwagOcrPageResult> ocrPages { get; set; }
 
+    /**
+     * When the job exceeds 25 pages, an Async Job ID is returned.  Use the CheckPdfOcrJobStatus API to check on the status of this job using the AsyncJobID and get the result when it finishes
+     * @return asyncJobID
+     */
+    public String asyncJobID { get; set; }
+
+    /**
+     * Returns the job status of the Async Job, if applicable.  Possible states are STARTED and COMPLETED
+     * @return asyncJobStatus
+     */
+    public String asyncJobStatus { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'Successful' => 'successful',
-        'OcrPages' => 'ocrPages'
+        'OcrPages' => 'ocrPages',
+        'AsyncJobID' => 'asyncJobID',
+        'AsyncJobStatus' => 'asyncJobStatus'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -43,6 +57,8 @@ public class SwagPdfToTextResponse implements Swagger.MappedProperties {
         SwagPdfToTextResponse pdfToTextResponse = new SwagPdfToTextResponse();
         pdfToTextResponse.successful = true;
         pdfToTextResponse.ocrPages = new List<SwagOcrPageResult>{SwagOcrPageResult.getExample()};
+        pdfToTextResponse.asyncJobID = 'aeiou';
+        pdfToTextResponse.asyncJobStatus = 'aeiou';
         return pdfToTextResponse;
     }
 
@@ -50,7 +66,9 @@ public class SwagPdfToTextResponse implements Swagger.MappedProperties {
         if (obj instanceof SwagPdfToTextResponse) {
             SwagPdfToTextResponse pdfToTextResponse = (SwagPdfToTextResponse) obj;
             return this.successful == pdfToTextResponse.successful
-                && this.ocrPages == pdfToTextResponse.ocrPages;
+                && this.ocrPages == pdfToTextResponse.ocrPages
+                && this.asyncJobID == pdfToTextResponse.asyncJobID
+                && this.asyncJobStatus == pdfToTextResponse.asyncJobStatus;
         }
         return false;
     }
@@ -59,6 +77,8 @@ public class SwagPdfToTextResponse implements Swagger.MappedProperties {
         Integer hashCode = 43;
         hashCode = (17 * hashCode) + (successful == null ? 0 : System.hashCode(successful));
         hashCode = (17 * hashCode) + (ocrPages == null ? 0 : System.hashCode(ocrPages));
+        hashCode = (17 * hashCode) + (asyncJobID == null ? 0 : System.hashCode(asyncJobID));
+        hashCode = (17 * hashCode) + (asyncJobStatus == null ? 0 : System.hashCode(asyncJobStatus));
         return hashCode;
     }
 }

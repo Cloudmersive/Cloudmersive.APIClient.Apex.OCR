@@ -76,6 +76,7 @@ Class | Method | HTTP request | Description
 *SwagImageOcrApi* | [**imageOcrPhotoToText**](docs/SwagImageOcrApi.md#imageOcrPhotoToText) | **POST** /ocr/photo/toText | Convert a photo of a document into text
 *SwagImageOcrApi* | [**imageOcrPhotoWordsWithLocation**](docs/SwagImageOcrApi.md#imageOcrPhotoWordsWithLocation) | **POST** /ocr/photo/to/words-with-location | Convert a photo of a document or receipt into words with location
 *SwagImageOcrApi* | [**imageOcrPost**](docs/SwagImageOcrApi.md#imageOcrPost) | **POST** /ocr/image/toText | Convert a scanned image into text
+*SwagPdfOcrApi* | [**pdfOcrGetAsyncJobStatus**](docs/SwagPdfOcrApi.md#pdfOcrGetAsyncJobStatus) | **GET** /ocr/pdf/get-job-status | Returns the result of the Async Job - possible states can be STARTED or COMPLETED
 *SwagPdfOcrApi* | [**pdfOcrPdfToLinesWithLocation**](docs/SwagPdfOcrApi.md#pdfOcrPdfToLinesWithLocation) | **POST** /ocr/pdf/to/lines-with-location | Convert a PDF into text lines with location
 *SwagPdfOcrApi* | [**pdfOcrPdfToWordsWithLocation**](docs/SwagPdfOcrApi.md#pdfOcrPdfToWordsWithLocation) | **POST** /ocr/pdf/to/words-with-location | Convert a PDF into words with location
 *SwagPdfOcrApi* | [**pdfOcrPost**](docs/SwagPdfOcrApi.md#pdfOcrPost) | **POST** /ocr/pdf/toText | Converts an uploaded PDF file into text via Optical Character Recognition.

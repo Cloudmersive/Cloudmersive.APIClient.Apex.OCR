@@ -84,6 +84,8 @@ private class SwagPdfToTextResponseTest {
         Map<String, String> propertyMappings = pdfToTextResponse.getPropertyMappings();
         System.assertEquals('successful', propertyMappings.get('Successful'));
         System.assertEquals('ocrPages', propertyMappings.get('OcrPages'));
+        System.assertEquals('asyncJobID', propertyMappings.get('AsyncJobID'));
+        System.assertEquals('asyncJobStatus', propertyMappings.get('AsyncJobStatus'));
     }
 
     @isTest
@@ -91,5 +93,7 @@ private class SwagPdfToTextResponseTest {
         SwagPdfToTextResponse pdfToTextResponse = new SwagPdfToTextResponse();
         System.assertEquals(new List<SwagOcrPageResult>(), pdfToTextResponse.ocrPages);
         System.assertEquals(null, pdfToTextResponse.successful);
+        System.assertEquals(null, pdfToTextResponse.asyncJobID);
+        System.assertEquals(null, pdfToTextResponse.asyncJobStatus);
     }
 }

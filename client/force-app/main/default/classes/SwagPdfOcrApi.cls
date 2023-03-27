@@ -26,6 +26,33 @@ public class SwagPdfOcrApi {
     }
 
     /**
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED
+     * 
+     * @param asyncJobID  (required)
+     * @return SwagPdfToTextResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagPdfToTextResponse pdfOcrGetAsyncJobStatus(Map<String, Object> params) {
+        client.assertNotNull(params.get('asyncJobID'), 'asyncJobID');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+
+        // cast query params to verify their expected type
+        query.addAll(client.makeParam('AsyncJobID', (String) params.get('asyncJobID')));
+
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagPdfToTextResponse) client.invoke(
+            'GET', '/ocr/pdf/get-job-status', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagPdfToTextResponse.class
+        );
+    }
+    /**
      * Convert a PDF into text lines with location
      * Converts a PDF into lines/text with location information and other metdata via Optical Character Recognition.  This API is intended to be run on scanned documents.  If you want to OCR photos (e.g. taken with a smart phone camera), be sure to use the photo/toText API instead, as it is designed to unskew the image first.
      * @param imageFile PDF file to perform OCR on. (required)
@@ -91,7 +118,7 @@ public class SwagPdfOcrApi {
      * Converts an uploaded PDF file into text via Optical Character Recognition.
      * 
      * @param imageFile PDF file to perform OCR on. (required)
-     * @param recognitionMode Optional; possible values are \&#39;Basic\&#39; which provides basic recognition and is not resillient to page rotation, skew or low quality images uses 1-2 API calls per page; \&#39;Normal\&#39; which provides highly fault tolerant OCR recognition uses 14-16 API calls per page; and \&#39;Advanced\&#39; which provides the highest quality and most fault-tolerant recognition uses 28-30 API calls per page.  Default recognition mode is \&#39;Basic\&#39; (optional)
+     * @param recognitionMode Optional; possible values are \&#39;Basic\&#39; which provides basic recognition and is not resillient to page rotation, skew or low quality images uses 1-2 API calls per page; \&#39;Normal\&#39; which provides highly fault tolerant OCR recognition uses 26-30 API calls per page; and \&#39;Advanced\&#39; which provides the highest quality and most fault-tolerant recognition uses 28-30 API calls per page.  Default recognition mode is \&#39;Basic\&#39; (optional)
      * @param language Optional, language of the input document, default is English (ENG).  Possible values are ENG (English), ARA (Arabic), ZHO (Chinese - Simplified), ZHO-HANT (Chinese - Traditional), ASM (Assamese), AFR (Afrikaans), AMH (Amharic), AZE (Azerbaijani), AZE-CYRL (Azerbaijani - Cyrillic), BEL (Belarusian), BEN (Bengali), BOD (Tibetan), BOS (Bosnian), BUL (Bulgarian), CAT (Catalan; Valencian), CEB (Cebuano), CES (Czech), CHR (Cherokee), CYM (Welsh), DAN (Danish), DEU (German), DZO (Dzongkha), ELL (Greek), ENM (Archaic/Middle English), EPO (Esperanto), EST (Estonian), EUS (Basque), FAS (Persian), FIN (Finnish), FRA (French), FRK (Frankish), FRM (Middle-French), GLE (Irish), GLG (Galician), GRC (Ancient Greek), HAT (Hatian), HEB (Hebrew), HIN (Hindi), HRV (Croatian), HUN (Hungarian), IKU (Inuktitut), IND (Indonesian), ISL (Icelandic), ITA (Italian), ITA-OLD (Old - Italian), JAV (Javanese), JPN (Japanese), KAN (Kannada), KAT (Georgian), KAT-OLD (Old-Georgian), KAZ (Kazakh), KHM (Central Khmer), KIR (Kirghiz), KOR (Korean), KUR (Kurdish), LAO (Lao), LAT (Latin), LAV (Latvian), LIT (Lithuanian), MAL (Malayalam), MAR (Marathi), MKD (Macedonian), MLT (Maltese), MSA (Malay), MYA (Burmese), NEP (Nepali), NLD (Dutch), NOR (Norwegian), ORI (Oriya), PAN (Panjabi), POL (Polish), POR (Portuguese), PUS (Pushto), RON (Romanian), RUS (Russian), SAN (Sanskrit), SIN (Sinhala), SLK (Slovak), SLV (Slovenian), SPA (Spanish), SPA-OLD (Old Spanish), SQI (Albanian), SRP (Serbian), SRP-LAT (Latin Serbian), SWA (Swahili), SWE (Swedish), SYR (Syriac), TAM (Tamil), TEL (Telugu), TGK (Tajik), TGL (Tagalog), THA (Thai), TIR (Tigrinya), TUR (Turkish), UIG (Uighur), UKR (Ukrainian), URD (Urdu), UZB (Uzbek), UZB-CYR (Cyrillic Uzbek), VIE (Vietnamese), YID (Yiddish) (optional)
      * @param preprocessing Optional, preprocessing mode, default is \&#39;Auto\&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image before OCR is applied; this is recommended). (optional)
      * @return SwagPdfToTextResponse
